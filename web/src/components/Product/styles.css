@@ -1,0 +1,42 @@
+.product-container {
+  flex: 1 20%;
+  margin-bottom: 2em;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0.5em auto;
+}
+
+.product-img {
+  width: 12.5vw;
+  border-radius: 0.375em;
+}
+
+.product-name {
+  margin: 0 auto;
+  width: 12.5vw;
+  color: #202025;
+  text-align: center;
+}
+
+.separator {
+  width: 1.125em;
+  height: 0.1875em;
+  background: #dfbd00;
+  margin: 0.5em auto;
+}
+
+.product-price {
+  width: 12.5vw;
+  line-height: 1.5em;
+  text-align: center;
+  font-size: 0.75em;
+  margin: 0 auto;
+}
+
+.product-price-focus {
+  font-size: 2em;
+}
