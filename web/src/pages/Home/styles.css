@@ -14,3 +14,11 @@
   color: #dfbd00;
   font-weight: lighter;
 }
+
+.warning-container {
+  margin: 5em auto 0 auto;
+  width: 33.33vw;
+  font-weight: lighter;
+  color: #202025;
+  text-align: center;
+}
