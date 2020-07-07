@@ -1,19 +1,18 @@
 import React from 'react'
+import Header from '../../components/Header'
+
+import './styles.css'
 
 const Home = () => {
   return (
     <div>
-      <header>
-        <h2>SOMESHOES</h2>
-        <div>
-          <p>search</p>
-          <p>O</p>
-        </div>
-        <div>
-          <p>User</p>
-          <p>Bag</p>
-        </div>
-      </header>
+      <Header />
+      <div className="slogan-container">
+        <h2 className="slogan-title ">
+          A maior loja online de artigos esportivos
+        </h2>
+        <h3 className="slogan-subtitle ">Procurou, achou, comprou!</h3>
+      </div>
     </div>
   )
 }
