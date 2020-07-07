@@ -22,3 +22,41 @@
   color: #202025;
   text-align: center;
 }
+
+.search-results {
+  width: 33.33vw;
+  margin: 2em auto 0 auto;
+  text-align: center;
+}
+
+.search-text {
+  line-height: 1.2em;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #202025;
+  margin-bottom: 0.5em;
+}
+
+.search-amount {
+  line-height: 1em;
+  font-weight: lighter;
+  color: #202025;
+}
+
+.product-list {
+  width: 95.14vw;
+  padding: 0 4.86vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1.5em;
+}
+
+.search-results::after {
+  content: '';
+  display: block;
+  width: 1.125em;
+  height: 0.1875em;
+  background: #202025;
+  margin: 1.5em auto;
+}
