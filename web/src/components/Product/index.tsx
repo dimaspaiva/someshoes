@@ -31,27 +31,29 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
   return (
     <div className="product-container">
-      <div className="img-container">
-        <img
-          className="product-img"
-          src={shirts[random]}
-          alt="product-name"
-        />
-      </div>
+      <div className="product">
+        <div className="img-container">
+          <img
+            className="product-img"
+            src={shirts[random]}
+            alt="product-name"
+          />
+        </div>
 
-      <p className="product-name">{product.title}</p>
-      <div className="separator" />
-      <p className="product-price">
-        R${' '}
-        <strong className="product-price-focus">
-          {Math.floor(product.price)}
-        </strong>
-        {(product.price - Math.floor(product.price))
-          .toFixed(2)
-          .toString()
-          .replace('.', ',')
-          .substr(1, 3)}
-      </p>
+        <p className="product-name">{product.title}</p>
+        <div className="separator" />
+        <p className="product-price">
+          R${' '}
+          <strong className="product-price-focus">
+            {Math.floor(product.price)}
+          </strong>
+          {(product.price - Math.floor(product.price))
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')
+            .substr(1, 3)}
+        </p>
+      </div>
     </div>
   )
 }
