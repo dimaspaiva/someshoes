@@ -1,16 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 
+import routes from './routes'
+
 const app = express()
 
-app.get('/', (req, res) => {
-  res.json({
-    name: '[APP]',
-    message: 'Up!',
-    whatami: 'Static server to provide data to frontend',
-    data: 'Products infos',
-  })
-})
+app.use(routes)
 
 app.use(cors())
 
