@@ -38,7 +38,12 @@
   color: #eaeaea;
 }
 
-.search-icon {
+.search-button {
+  cursor: pointer;
+}
+
+.search-button:hover {
+  opacity: 0.6;
 }
 
 .menu {

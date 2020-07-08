@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 
 import api from '../../services/api'
 
@@ -28,6 +28,7 @@ const Home = () => {
   const [request, setRequest] = useState(false)
   const [products, setProducts] = useState<Product[]>([])
   const [amount, setAmount] = useState(0)
+  const [term, setTerm] = useState('')
 
   useEffect(() => {
     api.get('products').then(({ data }) => {
@@ -37,9 +38,33 @@ const Home = () => {
     })
   }, [])
 
+  const handleSearch = async (newTerm: string) => {
+    const singleTerm = term.split(' ')[0]
+    if (newTerm === '' || newTerm === term) {
+      return
+    }
+
+    setTerm(newTerm)
+
+    api.get(`products/?search=${singleTerm}`).then(({ data }) => {
+      const { products, amount } = data
+      if (!products[0]) {
+        setSuccess(false)
+        setRequest(true)
+        setAmount(0)
+        return setProducts([])
+      }
+
+      setRequest(true)
+      setSuccess(true)
+      setProducts(products)
+      setAmount(amount)
+    })
+  }
+
   return (
     <>
-      <Header />
+      <Header handleSearch={handleSearch} />
       {!request ? (
         <section className="slogan-container">
           <h2 className="slogan-title ">
@@ -50,16 +75,17 @@ const Home = () => {
       ) : success ? (
         <section>
           <div className="search-results">
-            <p className="search-text">"Camisa Íbis"</p>
-            <p className="search-amount">1 - 15 | 99 resultados</p>
+            <p className="search-text">"{term}"</p>
+            <p className="search-amount">
+              1 - {amount} | {amount} resultados
+            </p>
           </div>
         </section>
       ) : (
         <section className="warning-container">
           <p>
-            Desculpe não encontramos o produto{' '}
-            <strong>"Camisa do mundial do Palmeiras"</strong> em nossa
-            lista. :/
+            Desculpe não encontramos o produto
+            <strong> "{term}"</strong> em nossa lista. :/
           </p>
         </section>
       )}

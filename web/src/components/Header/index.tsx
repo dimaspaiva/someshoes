@@ -1,26 +1,50 @@
-import React from 'react'
+import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { FiSearch, FiUser } from 'react-icons/fi'
 import { FaShoppingBag } from 'react-icons/fa'
 
 import './style.css'
 
-const Header = () => {
+interface HeaderProps {
+  handleSearch: (term: string) => void
+}
+
+const Header: React.FC<HeaderProps> = ({ handleSearch }) => {
+  const [search, setSearch] = useState('')
+
+  const handleSearchTerm = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    console.log(value)
+    setSearch(value)
+  }
+
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    handleSearch(search)
+  }
+
   return (
     <header className="container">
       <div className="logo">
         <p>SOMESHOES</p>
       </div>
 
-      <div className="search">
+      <form className="search" onSubmit={handleFormSubmit}>
         <input
           className="search-input"
           type="text"
           name="search"
           id="search"
           placeholder="O que você precisa?"
+          onChange={handleSearchTerm}
         />
-        <FiSearch color="#EAEAEA" />
-      </div>
+        <div>
+          <FiSearch
+            color="#EAEAEA"
+            className="search-button"
+            onClick={() => {}}
+          />
+        </div>
+      </form>
 
       <div className="menu">
         <div className="menu-option">
