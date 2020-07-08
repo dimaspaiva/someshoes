@@ -1,6 +1,16 @@
 .slogan-container {
-  margin-left: 10.42vw;
-  margin-top: 5em;
+  margin: 3em auto;
+  width: 36%;
+  text-align: center;
+}
+
+.slogan-container::after {
+  content: '';
+  display: block;
+  width: 1.5em;
+  margin: 1em auto 1.5em auto;
+  height: 0.1875em;
+  background: #dfbd00;
 }
 
 .slogan-title {
@@ -47,7 +57,7 @@
   width: 95.14vw;
   padding: 0 4.86vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 1.5em;
 }
