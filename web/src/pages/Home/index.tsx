@@ -7,19 +7,19 @@ import Product from '../../components/Product'
 
 import './styles.css'
 
-interface Product {
+interface ProductProps {
   id: number
   title: string
   description: string
   avaibleSizes: string[]
   style: string
-  prince: number
+  price: number
   isFreeShipping: boolean
 }
 
 interface Data {
   message: string
-  products: Product[]
+  products: ProductProps[]
   amount: number
 }
 
@@ -36,16 +36,6 @@ const Home = () => {
       setAmount(amount)
     })
   }, [])
-
-  const generator = () => {
-    const productArray = []
-
-    for (let i = 0; i < 15; i++) {
-      productArray.push(<Product key={i} />)
-    }
-
-    return productArray
-  }
 
   return (
     <>
@@ -73,10 +63,11 @@ const Home = () => {
           </p>
         </section>
       )}
+
       <section>
         <div className="product-list">
           {products.map((product) => (
-            <Product />
+            <Product key={product.id} product={product} />
           ))}
         </div>
       </section>
